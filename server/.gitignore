@@ -1,0 +1,5 @@
+venv
+build
+dist
+__pycache__
+server_py_flutter_lnx.spec

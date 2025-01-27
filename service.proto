@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+// supports
+message RollerSupport{
+  float v_reaction = 1;
+  float settlement = 2;
+}
+
+message HingeSupport{
+  float v_reaction = 1;
+  float h_reaction = 2;
+  float settlement = 3;
+}
+
+message FixedSupport{
+  float v_reaction = 1;
+  float h_reaction = 2;
+  float m_reaction = 3;
+  float settlement = 4;
+}
+
+message Support{
+  enum SupportType{
+    UNKNOWN = 0;
+    ROLLER_SUPPORT = 1;
+    HINGE_SUPPORT = 2;
+    FIXED_SUPPORT = 3;
+  }
+  SupportType support_type = 1;
+  oneof support{
+    RollerSupport roller_support = 2;
+    HingeSupport hinge_support = 3;
+    FixedSupport fixed_support = 4;
+  }
+}
+
+// loadings
+message PointLoad{
+  float x_value = 1;
+  float y_value = 2;
+  float point_of_application = 3;
+}
+
+message Couple{
+  float value = 1;
+  float point_of_application = 2;
+}
+
+message UniformlyDistributedLoad{
+  float value = 1;
+  float starting_point = 2;
+  float length = 3;
+}
+
+message VerticallyDistributedLoad{
+  enum Orientation{
+    UNKNOWN = 0;
+    LEFT = 1;
+    RIGHT = 2;
+  }
+  Orientation orientation = 1;
+  float vertex = 2;
+  float starting_point = 3;
+  float length = 4;
+}
+
+message Load{
+  enum LoadType{
+    UNKNOWN = 0;
+    COUPLE = 1;
+    POINT_LOAD = 2;
+    UNIFORMLY_DISTRIBUTED_LOAD = 3;
+    VERTICALLY_DISTRIBUTED_LOAD = 4;
+  }
+  LoadType load_type = 1;
+  oneof load{
+    PointLoad point_load = 2;
+    Couple couple = 3;
+    UniformlyDistributedLoad uniformly_distributed_load = 4;
+    VerticallyDistributedLoad vertically_distributed_load = 5;
+  }
+}
+
+message Member{
+  float length = 1;
+  optional float elastic_modulus = 2;
+  optional float moment_of_inertia = 3;
+  repeated Load loadings = 4;
+}
+
+// component
+message Component{
+  enum ComponentType{
+    UNKNOWN = 0;
+    MEMBER = 1;
+    SUPPORT = 2;
+  }
+  ComponentType component_type = 1;
+  oneof component{
+    Support support = 2;
+    Member member = 3;
+  }
+}
+
+// beam
+message Beam{
+  repeated Component components = 1;
+}
+
+
+service FrameAnalysis{
+  rpc AnalyzeBeam (Beam) returns (Beam);
+}

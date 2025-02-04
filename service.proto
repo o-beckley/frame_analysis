@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+message AnalysisLog{
+  repeated string messages = 1;
+}
+
 // supports
 message RollerSupport{
   float v_reaction = 1;
@@ -105,6 +109,7 @@ message Component{
 // beam
 message Beam{
   repeated Component components = 1;
+  AnalysisLog log = 2;
 }
 
 

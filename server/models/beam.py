@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 
-from component import Component
-from load import PointLoad, UniformlyDistributedLoad, VerticallyDistributedLoad, Couple
-from support import Support, RollerSupport, HingeSupport, FixedSupport
-from member import Member
+from models.component import Component
+from models.load import PointLoad, UniformlyDistributedLoad, VerticallyDistributedLoad, Couple
+from models.log import AnalysisLog
+from models.support import Support, RollerSupport, HingeSupport, FixedSupport
+from models.member import Member
 import numpy as np
 import math
 
@@ -13,6 +14,7 @@ import math
 class Beam:
     def __init__(self, components: list[Component]):
         self.components = components
+        self.log = AnalysisLog()
 
         # Positioning the members end to end
         len_previous_members = 0

@@ -24,45 +24,47 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\"7\n\rRollerSupport\x12\x12\n\nv_reaction\x18\x01 \x01(\x02\x12\x12\n\nsettlement\x18\x02 \x01(\x02\"J\n\x0cHingeSupport\x12\x12\n\nv_reaction\x18\x01 \x01(\x02\x12\x12\n\nh_reaction\x18\x02 \x01(\x02\x12\x12\n\nsettlement\x18\x03 \x01(\x02\"^\n\x0c\x46ixedSupport\x12\x12\n\nv_reaction\x18\x01 \x01(\x02\x12\x12\n\nh_reaction\x18\x02 \x01(\x02\x12\x12\n\nm_reaction\x18\x03 \x01(\x02\x12\x12\n\nsettlement\x18\x04 \x01(\x02\"\x90\x02\n\x07Support\x12*\n\x0csupport_type\x18\x01 \x01(\x0e\x32\x14.Support.SupportType\x12(\n\x0eroller_support\x18\x02 \x01(\x0b\x32\x0e.RollerSupportH\x00\x12&\n\rhinge_support\x18\x03 \x01(\x0b\x32\r.HingeSupportH\x00\x12&\n\rfixed_support\x18\x04 \x01(\x0b\x32\r.FixedSupportH\x00\"T\n\x0bSupportType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x12\n\x0eROLLER_SUPPORT\x10\x01\x12\x11\n\rHINGE_SUPPORT\x10\x02\x12\x11\n\rFIXED_SUPPORT\x10\x03\x42\t\n\x07support\"K\n\tPointLoad\x12\x0f\n\x07x_value\x18\x01 \x01(\x02\x12\x0f\n\x07y_value\x18\x02 \x01(\x02\x12\x1c\n\x14point_of_application\x18\x03 \x01(\x02\"5\n\x06\x43ouple\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x1c\n\x14point_of_application\x18\x02 \x01(\x02\"Q\n\x18UniformlyDistributedLoad\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x16\n\x0estarting_point\x18\x02 \x01(\x02\x12\x0e\n\x06length\x18\x03 \x01(\x02\"\xc1\x01\n\x19VerticallyDistributedLoad\x12;\n\x0borientation\x18\x01 \x01(\x0e\x32&.VerticallyDistributedLoad.Orientation\x12\x0e\n\x06vertex\x18\x02 \x01(\x02\x12\x16\n\x0estarting_point\x18\x03 \x01(\x02\x12\x0e\n\x06length\x18\x04 \x01(\x02\"/\n\x0bOrientation\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04LEFT\x10\x01\x12\t\n\x05RIGHT\x10\x02\"\xe8\x02\n\x04Load\x12!\n\tload_type\x18\x01 \x01(\x0e\x32\x0e.Load.LoadType\x12 \n\npoint_load\x18\x02 \x01(\x0b\x32\n.PointLoadH\x00\x12\x19\n\x06\x63ouple\x18\x03 \x01(\x0b\x32\x07.CoupleH\x00\x12?\n\x1auniformly_distributed_load\x18\x04 \x01(\x0b\x32\x19.UniformlyDistributedLoadH\x00\x12\x41\n\x1bvertically_distributed_load\x18\x05 \x01(\x0b\x32\x1a.VerticallyDistributedLoadH\x00\"t\n\x08LoadType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06\x43OUPLE\x10\x01\x12\x0e\n\nPOINT_LOAD\x10\x02\x12\x1e\n\x1aUNIFORMLY_DISTRIBUTED_LOAD\x10\x03\x12\x1f\n\x1bVERTICALLY_DISTRIBUTED_LOAD\x10\x04\x42\x06\n\x04load\"\x99\x01\n\x06Member\x12\x0e\n\x06length\x18\x01 \x01(\x02\x12\x1c\n\x0f\x65lastic_modulus\x18\x02 \x01(\x02H\x00\x88\x01\x01\x12\x1e\n\x11moment_of_inertia\x18\x03 \x01(\x02H\x01\x88\x01\x01\x12\x17\n\x08loadings\x18\x04 \x03(\x0b\x32\x05.LoadB\x12\n\x10_elastic_modulusB\x14\n\x12_moment_of_inertia\"\xb9\x01\n\tComponent\x12\x30\n\x0e\x63omponent_type\x18\x01 \x01(\x0e\x32\x18.Component.ComponentType\x12\x1b\n\x07support\x18\x02 \x01(\x0b\x32\x08.SupportH\x00\x12\x19\n\x06member\x18\x03 \x01(\x0b\x32\x07.MemberH\x00\"5\n\rComponentType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06MEMBER\x10\x01\x12\x0b\n\x07SUPPORT\x10\x02\x42\x0b\n\tcomponent\"&\n\x04\x42\x65\x61m\x12\x1e\n\ncomponents\x18\x01 \x03(\x0b\x32\n.Component2,\n\rFrameAnalysis\x12\x1b\n\x0b\x41nalyzeBeam\x12\x05.Beam\x1a\x05.Beamb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\"\x1f\n\x0b\x41nalysisLog\x12\x10\n\x08messages\x18\x01 \x03(\t\"7\n\rRollerSupport\x12\x12\n\nv_reaction\x18\x01 \x01(\x02\x12\x12\n\nsettlement\x18\x02 \x01(\x02\"J\n\x0cHingeSupport\x12\x12\n\nv_reaction\x18\x01 \x01(\x02\x12\x12\n\nh_reaction\x18\x02 \x01(\x02\x12\x12\n\nsettlement\x18\x03 \x01(\x02\"^\n\x0c\x46ixedSupport\x12\x12\n\nv_reaction\x18\x01 \x01(\x02\x12\x12\n\nh_reaction\x18\x02 \x01(\x02\x12\x12\n\nm_reaction\x18\x03 \x01(\x02\x12\x12\n\nsettlement\x18\x04 \x01(\x02\"\x90\x02\n\x07Support\x12*\n\x0csupport_type\x18\x01 \x01(\x0e\x32\x14.Support.SupportType\x12(\n\x0eroller_support\x18\x02 \x01(\x0b\x32\x0e.RollerSupportH\x00\x12&\n\rhinge_support\x18\x03 \x01(\x0b\x32\r.HingeSupportH\x00\x12&\n\rfixed_support\x18\x04 \x01(\x0b\x32\r.FixedSupportH\x00\"T\n\x0bSupportType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x12\n\x0eROLLER_SUPPORT\x10\x01\x12\x11\n\rHINGE_SUPPORT\x10\x02\x12\x11\n\rFIXED_SUPPORT\x10\x03\x42\t\n\x07support\"K\n\tPointLoad\x12\x0f\n\x07x_value\x18\x01 \x01(\x02\x12\x0f\n\x07y_value\x18\x02 \x01(\x02\x12\x1c\n\x14point_of_application\x18\x03 \x01(\x02\"5\n\x06\x43ouple\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x1c\n\x14point_of_application\x18\x02 \x01(\x02\"Q\n\x18UniformlyDistributedLoad\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x16\n\x0estarting_point\x18\x02 \x01(\x02\x12\x0e\n\x06length\x18\x03 \x01(\x02\"\xc1\x01\n\x19VerticallyDistributedLoad\x12;\n\x0borientation\x18\x01 \x01(\x0e\x32&.VerticallyDistributedLoad.Orientation\x12\x0e\n\x06vertex\x18\x02 \x01(\x02\x12\x16\n\x0estarting_point\x18\x03 \x01(\x02\x12\x0e\n\x06length\x18\x04 \x01(\x02\"/\n\x0bOrientation\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04LEFT\x10\x01\x12\t\n\x05RIGHT\x10\x02\"\xe8\x02\n\x04Load\x12!\n\tload_type\x18\x01 \x01(\x0e\x32\x0e.Load.LoadType\x12 \n\npoint_load\x18\x02 \x01(\x0b\x32\n.PointLoadH\x00\x12\x19\n\x06\x63ouple\x18\x03 \x01(\x0b\x32\x07.CoupleH\x00\x12?\n\x1auniformly_distributed_load\x18\x04 \x01(\x0b\x32\x19.UniformlyDistributedLoadH\x00\x12\x41\n\x1bvertically_distributed_load\x18\x05 \x01(\x0b\x32\x1a.VerticallyDistributedLoadH\x00\"t\n\x08LoadType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06\x43OUPLE\x10\x01\x12\x0e\n\nPOINT_LOAD\x10\x02\x12\x1e\n\x1aUNIFORMLY_DISTRIBUTED_LOAD\x10\x03\x12\x1f\n\x1bVERTICALLY_DISTRIBUTED_LOAD\x10\x04\x42\x06\n\x04load\"\x99\x01\n\x06Member\x12\x0e\n\x06length\x18\x01 \x01(\x02\x12\x1c\n\x0f\x65lastic_modulus\x18\x02 \x01(\x02H\x00\x88\x01\x01\x12\x1e\n\x11moment_of_inertia\x18\x03 \x01(\x02H\x01\x88\x01\x01\x12\x17\n\x08loadings\x18\x04 \x03(\x0b\x32\x05.LoadB\x12\n\x10_elastic_modulusB\x14\n\x12_moment_of_inertia\"\xb9\x01\n\tComponent\x12\x30\n\x0e\x63omponent_type\x18\x01 \x01(\x0e\x32\x18.Component.ComponentType\x12\x1b\n\x07support\x18\x02 \x01(\x0b\x32\x08.SupportH\x00\x12\x19\n\x06member\x18\x03 \x01(\x0b\x32\x07.MemberH\x00\"5\n\rComponentType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06MEMBER\x10\x01\x12\x0b\n\x07SUPPORT\x10\x02\x42\x0b\n\tcomponent\"A\n\x04\x42\x65\x61m\x12\x1e\n\ncomponents\x18\x01 \x03(\x0b\x32\n.Component\x12\x19\n\x03log\x18\x02 \x01(\x0b\x32\x0c.AnalysisLog2,\n\rFrameAnalysis\x12\x1b\n\x0b\x41nalyzeBeam\x12\x05.Beam\x1a\x05.Beamb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_ROLLERSUPPORT']._serialized_start=17
-  _globals['_ROLLERSUPPORT']._serialized_end=72
-  _globals['_HINGESUPPORT']._serialized_start=74
-  _globals['_HINGESUPPORT']._serialized_end=148
-  _globals['_FIXEDSUPPORT']._serialized_start=150
-  _globals['_FIXEDSUPPORT']._serialized_end=244
-  _globals['_SUPPORT']._serialized_start=247
-  _globals['_SUPPORT']._serialized_end=519
-  _globals['_SUPPORT_SUPPORTTYPE']._serialized_start=424
-  _globals['_SUPPORT_SUPPORTTYPE']._serialized_end=508
-  _globals['_POINTLOAD']._serialized_start=521
-  _globals['_POINTLOAD']._serialized_end=596
-  _globals['_COUPLE']._serialized_start=598
-  _globals['_COUPLE']._serialized_end=651
-  _globals['_UNIFORMLYDISTRIBUTEDLOAD']._serialized_start=653
-  _globals['_UNIFORMLYDISTRIBUTEDLOAD']._serialized_end=734
-  _globals['_VERTICALLYDISTRIBUTEDLOAD']._serialized_start=737
-  _globals['_VERTICALLYDISTRIBUTEDLOAD']._serialized_end=930
-  _globals['_VERTICALLYDISTRIBUTEDLOAD_ORIENTATION']._serialized_start=883
-  _globals['_VERTICALLYDISTRIBUTEDLOAD_ORIENTATION']._serialized_end=930
-  _globals['_LOAD']._serialized_start=933
-  _globals['_LOAD']._serialized_end=1293
-  _globals['_LOAD_LOADTYPE']._serialized_start=1169
-  _globals['_LOAD_LOADTYPE']._serialized_end=1285
-  _globals['_MEMBER']._serialized_start=1296
-  _globals['_MEMBER']._serialized_end=1449
-  _globals['_COMPONENT']._serialized_start=1452
-  _globals['_COMPONENT']._serialized_end=1637
-  _globals['_COMPONENT_COMPONENTTYPE']._serialized_start=1571
-  _globals['_COMPONENT_COMPONENTTYPE']._serialized_end=1624
-  _globals['_BEAM']._serialized_start=1639
-  _globals['_BEAM']._serialized_end=1677
-  _globals['_FRAMEANALYSIS']._serialized_start=1679
-  _globals['_FRAMEANALYSIS']._serialized_end=1723
+  _globals['_ANALYSISLOG']._serialized_start=17
+  _globals['_ANALYSISLOG']._serialized_end=48
+  _globals['_ROLLERSUPPORT']._serialized_start=50
+  _globals['_ROLLERSUPPORT']._serialized_end=105
+  _globals['_HINGESUPPORT']._serialized_start=107
+  _globals['_HINGESUPPORT']._serialized_end=181
+  _globals['_FIXEDSUPPORT']._serialized_start=183
+  _globals['_FIXEDSUPPORT']._serialized_end=277
+  _globals['_SUPPORT']._serialized_start=280
+  _globals['_SUPPORT']._serialized_end=552
+  _globals['_SUPPORT_SUPPORTTYPE']._serialized_start=457
+  _globals['_SUPPORT_SUPPORTTYPE']._serialized_end=541
+  _globals['_POINTLOAD']._serialized_start=554
+  _globals['_POINTLOAD']._serialized_end=629
+  _globals['_COUPLE']._serialized_start=631
+  _globals['_COUPLE']._serialized_end=684
+  _globals['_UNIFORMLYDISTRIBUTEDLOAD']._serialized_start=686
+  _globals['_UNIFORMLYDISTRIBUTEDLOAD']._serialized_end=767
+  _globals['_VERTICALLYDISTRIBUTEDLOAD']._serialized_start=770
+  _globals['_VERTICALLYDISTRIBUTEDLOAD']._serialized_end=963
+  _globals['_VERTICALLYDISTRIBUTEDLOAD_ORIENTATION']._serialized_start=916
+  _globals['_VERTICALLYDISTRIBUTEDLOAD_ORIENTATION']._serialized_end=963
+  _globals['_LOAD']._serialized_start=966
+  _globals['_LOAD']._serialized_end=1326
+  _globals['_LOAD_LOADTYPE']._serialized_start=1202
+  _globals['_LOAD_LOADTYPE']._serialized_end=1318
+  _globals['_MEMBER']._serialized_start=1329
+  _globals['_MEMBER']._serialized_end=1482
+  _globals['_COMPONENT']._serialized_start=1485
+  _globals['_COMPONENT']._serialized_end=1670
+  _globals['_COMPONENT_COMPONENTTYPE']._serialized_start=1604
+  _globals['_COMPONENT_COMPONENTTYPE']._serialized_end=1657
+  _globals['_BEAM']._serialized_start=1672
+  _globals['_BEAM']._serialized_end=1737
+  _globals['_FRAMEANALYSIS']._serialized_start=1739
+  _globals['_FRAMEANALYSIS']._serialized_end=1783
 # @@protoc_insertion_point(module_scope)

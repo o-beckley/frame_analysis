@@ -13,6 +13,18 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use analysisLogDescriptor instead')
+const AnalysisLog$json = {
+  '1': 'AnalysisLog',
+  '2': [
+    {'1': 'messages', '3': 1, '4': 3, '5': 9, '10': 'messages'},
+  ],
+};
+
+/// Descriptor for `AnalysisLog`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List analysisLogDescriptor = $convert.base64Decode(
+    'CgtBbmFseXNpc0xvZxIaCghtZXNzYWdlcxgBIAMoCVIIbWVzc2FnZXM=');
+
 @$core.Deprecated('Use rollerSupportDescriptor instead')
 const RollerSupport$json = {
   '1': 'RollerSupport',
@@ -265,10 +277,12 @@ const Beam$json = {
   '1': 'Beam',
   '2': [
     {'1': 'components', '3': 1, '4': 3, '5': 11, '6': '.Component', '10': 'components'},
+    {'1': 'log', '3': 2, '4': 1, '5': 11, '6': '.AnalysisLog', '10': 'log'},
   ],
 };
 
 /// Descriptor for `Beam`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List beamDescriptor = $convert.base64Decode(
-    'CgRCZWFtEioKCmNvbXBvbmVudHMYASADKAsyCi5Db21wb25lbnRSCmNvbXBvbmVudHM=');
+    'CgRCZWFtEioKCmNvbXBvbmVudHMYASADKAsyCi5Db21wb25lbnRSCmNvbXBvbmVudHMSHgoDbG'
+    '9nGAIgASgLMgwuQW5hbHlzaXNMb2dSA2xvZw==');
 

@@ -17,6 +17,50 @@ import 'service.pbenum.dart';
 
 export 'service.pbenum.dart';
 
+class AnalysisLog extends $pb.GeneratedMessage {
+  factory AnalysisLog({
+    $core.Iterable<$core.String>? messages,
+  }) {
+    final $result = create();
+    if (messages != null) {
+      $result.messages.addAll(messages);
+    }
+    return $result;
+  }
+  AnalysisLog._() : super();
+  factory AnalysisLog.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AnalysisLog.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AnalysisLog', createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'messages')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AnalysisLog clone() => AnalysisLog()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AnalysisLog copyWith(void Function(AnalysisLog) updates) => super.copyWith((message) => updates(message as AnalysisLog)) as AnalysisLog;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AnalysisLog create() => AnalysisLog._();
+  AnalysisLog createEmptyInstance() => create();
+  static $pb.PbList<AnalysisLog> createRepeated() => $pb.PbList<AnalysisLog>();
+  @$core.pragma('dart2js:noInline')
+  static AnalysisLog getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AnalysisLog>(create);
+  static AnalysisLog? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get messages => $_getList(0);
+}
+
 /// supports
 class RollerSupport extends $pb.GeneratedMessage {
   factory RollerSupport({
@@ -1001,10 +1045,14 @@ class Component extends $pb.GeneratedMessage {
 class Beam extends $pb.GeneratedMessage {
   factory Beam({
     $core.Iterable<Component>? components,
+    AnalysisLog? log,
   }) {
     final $result = create();
     if (components != null) {
       $result.components.addAll(components);
+    }
+    if (log != null) {
+      $result.log = log;
     }
     return $result;
   }
@@ -1014,6 +1062,7 @@ class Beam extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Beam', createEmptyInstance: create)
     ..pc<Component>(1, _omitFieldNames ? '' : 'components', $pb.PbFieldType.PM, subBuilder: Component.create)
+    ..aOM<AnalysisLog>(2, _omitFieldNames ? '' : 'log', subBuilder: AnalysisLog.create)
     ..hasRequiredFields = false
   ;
 
@@ -1040,6 +1089,17 @@ class Beam extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<Component> get components => $_getList(0);
+
+  @$pb.TagNumber(2)
+  AnalysisLog get log => $_getN(1);
+  @$pb.TagNumber(2)
+  set log(AnalysisLog v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLog() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLog() => clearField(2);
+  @$pb.TagNumber(2)
+  AnalysisLog ensureLog() => $_ensure(1);
 }
 
 

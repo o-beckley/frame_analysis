@@ -8,10 +8,12 @@ from models.load import Orientation
 
 class FrameAnalysisService(service_pb2_grpc.FrameAnalysisServicer):
     def AnalyzeBeam(self, request, context):
-        components = [parse_component(c) for c in request.components]
-        beam = Beam(components)
+        beam = Beam([parse_component(c) for c in request.components])
         beam.analyze()
-        retval = service_pb2.Beam(components=[encode_component(c) for c in beam.components])
+        retval = service_pb2.Beam(
+            components=[encode_component(c) for c in beam.components],
+            log=service_pb2.AnalysisLog(messages=beam.log.messages)
+        )
         return retval
 
 def encode_component(c: Component) -> service_pb2.Component:

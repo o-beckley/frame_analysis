@@ -4,7 +4,6 @@ message AnalysisLog{
   repeated string messages = 1;
 }
 
-// supports
 message RollerSupport{
   float v_reaction = 1;
   float settlement = 2;
@@ -24,21 +23,58 @@ message FixedSupport{
 }
 
 message Support{
-  enum SupportType{
+  enum Type{
     UNKNOWN = 0;
-    ROLLER_SUPPORT = 1;
-    HINGE_SUPPORT = 2;
-    FIXED_SUPPORT = 3;
+    ROLLER = 1;
+    HINGE = 2;
+    FIXED = 3;
   }
-  SupportType support_type = 1;
+  Type type = 1;
+  float position_x = 2;
+  float position_y = 3;
   oneof support{
-    RollerSupport roller_support = 2;
-    HingeSupport hinge_support = 3;
-    FixedSupport fixed_support = 4;
+    RollerSupport roller = 4;
+    HingeSupport hinge = 5;
+    FixedSupport fixed = 6;
   }
 }
 
-// loadings
+message HingedJoint{}
+
+message FixedJoint{}
+
+message Joint{
+  enum Type{
+    UNKNOWN = 0;
+    HINGED = 1;
+    FIXED = 2;
+  }
+  Type type = 1;
+  float position_x = 2;
+  float position_y = 3;
+  oneof joint{
+    HingedJoint hinged = 4;
+    FixedJoint fixed = 5;
+  }
+}
+
+message EmptyNode{}
+
+message Node{
+  enum Type{
+    UNKNOWN = 0;
+    EMPTY = 1;
+    SUPPORT = 2;
+    JOINT = 3;
+  }
+  Type type = 1;
+  oneof node{
+    EmptyNode empty = 2;
+    Support support = 3;
+    Joint joint = 4;
+  }
+}
+
 message PointLoad{
   float x_value = 1;
   float y_value = 2;
@@ -69,14 +105,14 @@ message VerticallyDistributedLoad{
 }
 
 message Load{
-  enum LoadType{
+  enum Type{
     UNKNOWN = 0;
     COUPLE = 1;
-    POINT_LOAD = 2;
-    UNIFORMLY_DISTRIBUTED_LOAD = 3;
-    VERTICALLY_DISTRIBUTED_LOAD = 4;
+    POINT = 2;
+    UNIFORMLY_DISTRIBUTED = 3;
+    VERTICALLY_DISTRIBUTED = 4;
   }
-  LoadType load_type = 1;
+  Type type = 1;
   oneof load{
     PointLoad point_load = 2;
     Couple couple = 3;
@@ -89,29 +125,41 @@ message Member{
   float length = 1;
   optional float elastic_modulus = 2;
   optional float moment_of_inertia = 3;
-  repeated Load loadings = 4;
+  float position_x = 4;
+  float position_y = 5;
+  repeated Load loadings = 6;
 }
 
-// component
-message Component{
-  enum ComponentType{
+message BeamComponent{
+  enum Type{
     UNKNOWN = 0;
     MEMBER = 1;
     SUPPORT = 2;
   }
-  ComponentType component_type = 1;
+  Type type = 1;
   oneof component{
-    Support support = 2;
+    Member member = 2;
+    Support support = 3;
+  }
+}
+
+message Component{
+  enum Type{
+    UNKNOWN = 0;
+    MEMBER = 1;
+    NODE = 2;
+  }
+  Type type = 1;
+  oneof component{
+    Node node = 2;
     Member member = 3;
   }
 }
 
-// beam
 message Beam{
-  repeated Component components = 1;
+  repeated BeamComponent components = 1;
   AnalysisLog log = 2;
 }
-
 
 service FrameAnalysis{
   rpc AnalyzeBeam (Beam) returns (Beam);

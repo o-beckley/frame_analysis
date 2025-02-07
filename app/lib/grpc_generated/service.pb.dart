@@ -61,7 +61,6 @@ class AnalysisLog extends $pb.GeneratedMessage {
   $core.List<$core.String> get messages => $_getList(0);
 }
 
-/// supports
 class RollerSupport extends $pb.GeneratedMessage {
   factory RollerSupport({
     $core.double? vReaction,
@@ -297,31 +296,39 @@ class FixedSupport extends $pb.GeneratedMessage {
 }
 
 enum Support_Support {
-  rollerSupport, 
-  hingeSupport, 
-  fixedSupport, 
+  roller, 
+  hinge, 
+  fixed, 
   notSet
 }
 
 class Support extends $pb.GeneratedMessage {
   factory Support({
-    Support_SupportType? supportType,
-    RollerSupport? rollerSupport,
-    HingeSupport? hingeSupport,
-    FixedSupport? fixedSupport,
+    Support_Type? type,
+    $core.double? positionX,
+    $core.double? positionY,
+    RollerSupport? roller,
+    HingeSupport? hinge,
+    FixedSupport? fixed,
   }) {
     final $result = create();
-    if (supportType != null) {
-      $result.supportType = supportType;
+    if (type != null) {
+      $result.type = type;
     }
-    if (rollerSupport != null) {
-      $result.rollerSupport = rollerSupport;
+    if (positionX != null) {
+      $result.positionX = positionX;
     }
-    if (hingeSupport != null) {
-      $result.hingeSupport = hingeSupport;
+    if (positionY != null) {
+      $result.positionY = positionY;
     }
-    if (fixedSupport != null) {
-      $result.fixedSupport = fixedSupport;
+    if (roller != null) {
+      $result.roller = roller;
+    }
+    if (hinge != null) {
+      $result.hinge = hinge;
+    }
+    if (fixed != null) {
+      $result.fixed = fixed;
     }
     return $result;
   }
@@ -330,17 +337,19 @@ class Support extends $pb.GeneratedMessage {
   factory Support.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static const $core.Map<$core.int, Support_Support> _Support_SupportByTag = {
-    2 : Support_Support.rollerSupport,
-    3 : Support_Support.hingeSupport,
-    4 : Support_Support.fixedSupport,
+    4 : Support_Support.roller,
+    5 : Support_Support.hinge,
+    6 : Support_Support.fixed,
     0 : Support_Support.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Support', createEmptyInstance: create)
-    ..oo(0, [2, 3, 4])
-    ..e<Support_SupportType>(1, _omitFieldNames ? '' : 'supportType', $pb.PbFieldType.OE, defaultOrMaker: Support_SupportType.UNKNOWN, valueOf: Support_SupportType.valueOf, enumValues: Support_SupportType.values)
-    ..aOM<RollerSupport>(2, _omitFieldNames ? '' : 'rollerSupport', subBuilder: RollerSupport.create)
-    ..aOM<HingeSupport>(3, _omitFieldNames ? '' : 'hingeSupport', subBuilder: HingeSupport.create)
-    ..aOM<FixedSupport>(4, _omitFieldNames ? '' : 'fixedSupport', subBuilder: FixedSupport.create)
+    ..oo(0, [4, 5, 6])
+    ..e<Support_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: Support_Type.UNKNOWN, valueOf: Support_Type.valueOf, enumValues: Support_Type.values)
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'positionX', $pb.PbFieldType.OF)
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'positionY', $pb.PbFieldType.OF)
+    ..aOM<RollerSupport>(4, _omitFieldNames ? '' : 'roller', subBuilder: RollerSupport.create)
+    ..aOM<HingeSupport>(5, _omitFieldNames ? '' : 'hinge', subBuilder: HingeSupport.create)
+    ..aOM<FixedSupport>(6, _omitFieldNames ? '' : 'fixed', subBuilder: FixedSupport.create)
     ..hasRequiredFields = false
   ;
 
@@ -369,49 +378,402 @@ class Support extends $pb.GeneratedMessage {
   void clearSupport() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  Support_SupportType get supportType => $_getN(0);
+  Support_Type get type => $_getN(0);
   @$pb.TagNumber(1)
-  set supportType(Support_SupportType v) { setField(1, v); }
+  set type(Support_Type v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSupportType() => $_has(0);
+  $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSupportType() => clearField(1);
+  void clearType() => clearField(1);
 
   @$pb.TagNumber(2)
-  RollerSupport get rollerSupport => $_getN(1);
+  $core.double get positionX => $_getN(1);
   @$pb.TagNumber(2)
-  set rollerSupport(RollerSupport v) { setField(2, v); }
+  set positionX($core.double v) { $_setFloat(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRollerSupport() => $_has(1);
+  $core.bool hasPositionX() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRollerSupport() => clearField(2);
-  @$pb.TagNumber(2)
-  RollerSupport ensureRollerSupport() => $_ensure(1);
+  void clearPositionX() => clearField(2);
 
   @$pb.TagNumber(3)
-  HingeSupport get hingeSupport => $_getN(2);
+  $core.double get positionY => $_getN(2);
   @$pb.TagNumber(3)
-  set hingeSupport(HingeSupport v) { setField(3, v); }
+  set positionY($core.double v) { $_setFloat(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasHingeSupport() => $_has(2);
+  $core.bool hasPositionY() => $_has(2);
   @$pb.TagNumber(3)
-  void clearHingeSupport() => clearField(3);
-  @$pb.TagNumber(3)
-  HingeSupport ensureHingeSupport() => $_ensure(2);
+  void clearPositionY() => clearField(3);
 
   @$pb.TagNumber(4)
-  FixedSupport get fixedSupport => $_getN(3);
+  RollerSupport get roller => $_getN(3);
   @$pb.TagNumber(4)
-  set fixedSupport(FixedSupport v) { setField(4, v); }
+  set roller(RollerSupport v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasFixedSupport() => $_has(3);
+  $core.bool hasRoller() => $_has(3);
   @$pb.TagNumber(4)
-  void clearFixedSupport() => clearField(4);
+  void clearRoller() => clearField(4);
   @$pb.TagNumber(4)
-  FixedSupport ensureFixedSupport() => $_ensure(3);
+  RollerSupport ensureRoller() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  HingeSupport get hinge => $_getN(4);
+  @$pb.TagNumber(5)
+  set hinge(HingeSupport v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasHinge() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearHinge() => clearField(5);
+  @$pb.TagNumber(5)
+  HingeSupport ensureHinge() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  FixedSupport get fixed => $_getN(5);
+  @$pb.TagNumber(6)
+  set fixed(FixedSupport v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasFixed() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearFixed() => clearField(6);
+  @$pb.TagNumber(6)
+  FixedSupport ensureFixed() => $_ensure(5);
 }
 
-/// loadings
+class HingedJoint extends $pb.GeneratedMessage {
+  factory HingedJoint() => create();
+  HingedJoint._() : super();
+  factory HingedJoint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory HingedJoint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HingedJoint', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  HingedJoint clone() => HingedJoint()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  HingedJoint copyWith(void Function(HingedJoint) updates) => super.copyWith((message) => updates(message as HingedJoint)) as HingedJoint;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static HingedJoint create() => HingedJoint._();
+  HingedJoint createEmptyInstance() => create();
+  static $pb.PbList<HingedJoint> createRepeated() => $pb.PbList<HingedJoint>();
+  @$core.pragma('dart2js:noInline')
+  static HingedJoint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HingedJoint>(create);
+  static HingedJoint? _defaultInstance;
+}
+
+class FixedJoint extends $pb.GeneratedMessage {
+  factory FixedJoint() => create();
+  FixedJoint._() : super();
+  factory FixedJoint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FixedJoint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FixedJoint', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FixedJoint clone() => FixedJoint()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FixedJoint copyWith(void Function(FixedJoint) updates) => super.copyWith((message) => updates(message as FixedJoint)) as FixedJoint;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FixedJoint create() => FixedJoint._();
+  FixedJoint createEmptyInstance() => create();
+  static $pb.PbList<FixedJoint> createRepeated() => $pb.PbList<FixedJoint>();
+  @$core.pragma('dart2js:noInline')
+  static FixedJoint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FixedJoint>(create);
+  static FixedJoint? _defaultInstance;
+}
+
+enum Joint_Joint {
+  hinged, 
+  fixed, 
+  notSet
+}
+
+class Joint extends $pb.GeneratedMessage {
+  factory Joint({
+    Joint_Type? type,
+    $core.double? positionX,
+    $core.double? positionY,
+    HingedJoint? hinged,
+    FixedJoint? fixed,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (positionX != null) {
+      $result.positionX = positionX;
+    }
+    if (positionY != null) {
+      $result.positionY = positionY;
+    }
+    if (hinged != null) {
+      $result.hinged = hinged;
+    }
+    if (fixed != null) {
+      $result.fixed = fixed;
+    }
+    return $result;
+  }
+  Joint._() : super();
+  factory Joint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Joint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Joint_Joint> _Joint_JointByTag = {
+    4 : Joint_Joint.hinged,
+    5 : Joint_Joint.fixed,
+    0 : Joint_Joint.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Joint', createEmptyInstance: create)
+    ..oo(0, [4, 5])
+    ..e<Joint_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: Joint_Type.UNKNOWN, valueOf: Joint_Type.valueOf, enumValues: Joint_Type.values)
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'positionX', $pb.PbFieldType.OF)
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'positionY', $pb.PbFieldType.OF)
+    ..aOM<HingedJoint>(4, _omitFieldNames ? '' : 'hinged', subBuilder: HingedJoint.create)
+    ..aOM<FixedJoint>(5, _omitFieldNames ? '' : 'fixed', subBuilder: FixedJoint.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Joint clone() => Joint()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Joint copyWith(void Function(Joint) updates) => super.copyWith((message) => updates(message as Joint)) as Joint;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Joint create() => Joint._();
+  Joint createEmptyInstance() => create();
+  static $pb.PbList<Joint> createRepeated() => $pb.PbList<Joint>();
+  @$core.pragma('dart2js:noInline')
+  static Joint getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Joint>(create);
+  static Joint? _defaultInstance;
+
+  Joint_Joint whichJoint() => _Joint_JointByTag[$_whichOneof(0)]!;
+  void clearJoint() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  Joint_Type get type => $_getN(0);
+  @$pb.TagNumber(1)
+  set type(Joint_Type v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get positionX => $_getN(1);
+  @$pb.TagNumber(2)
+  set positionX($core.double v) { $_setFloat(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPositionX() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPositionX() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get positionY => $_getN(2);
+  @$pb.TagNumber(3)
+  set positionY($core.double v) { $_setFloat(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPositionY() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPositionY() => clearField(3);
+
+  @$pb.TagNumber(4)
+  HingedJoint get hinged => $_getN(3);
+  @$pb.TagNumber(4)
+  set hinged(HingedJoint v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasHinged() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearHinged() => clearField(4);
+  @$pb.TagNumber(4)
+  HingedJoint ensureHinged() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  FixedJoint get fixed => $_getN(4);
+  @$pb.TagNumber(5)
+  set fixed(FixedJoint v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasFixed() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearFixed() => clearField(5);
+  @$pb.TagNumber(5)
+  FixedJoint ensureFixed() => $_ensure(4);
+}
+
+class EmptyNode extends $pb.GeneratedMessage {
+  factory EmptyNode() => create();
+  EmptyNode._() : super();
+  factory EmptyNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EmptyNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EmptyNode', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EmptyNode clone() => EmptyNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EmptyNode copyWith(void Function(EmptyNode) updates) => super.copyWith((message) => updates(message as EmptyNode)) as EmptyNode;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EmptyNode create() => EmptyNode._();
+  EmptyNode createEmptyInstance() => create();
+  static $pb.PbList<EmptyNode> createRepeated() => $pb.PbList<EmptyNode>();
+  @$core.pragma('dart2js:noInline')
+  static EmptyNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EmptyNode>(create);
+  static EmptyNode? _defaultInstance;
+}
+
+enum Node_Node {
+  empty, 
+  support, 
+  joint, 
+  notSet
+}
+
+class Node extends $pb.GeneratedMessage {
+  factory Node({
+    Node_Type? type,
+    EmptyNode? empty,
+    Support? support,
+    Joint? joint,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (empty != null) {
+      $result.empty = empty;
+    }
+    if (support != null) {
+      $result.support = support;
+    }
+    if (joint != null) {
+      $result.joint = joint;
+    }
+    return $result;
+  }
+  Node._() : super();
+  factory Node.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Node.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, Node_Node> _Node_NodeByTag = {
+    2 : Node_Node.empty,
+    3 : Node_Node.support,
+    4 : Node_Node.joint,
+    0 : Node_Node.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Node', createEmptyInstance: create)
+    ..oo(0, [2, 3, 4])
+    ..e<Node_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: Node_Type.UNKNOWN, valueOf: Node_Type.valueOf, enumValues: Node_Type.values)
+    ..aOM<EmptyNode>(2, _omitFieldNames ? '' : 'empty', subBuilder: EmptyNode.create)
+    ..aOM<Support>(3, _omitFieldNames ? '' : 'support', subBuilder: Support.create)
+    ..aOM<Joint>(4, _omitFieldNames ? '' : 'joint', subBuilder: Joint.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Node clone() => Node()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Node copyWith(void Function(Node) updates) => super.copyWith((message) => updates(message as Node)) as Node;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Node create() => Node._();
+  Node createEmptyInstance() => create();
+  static $pb.PbList<Node> createRepeated() => $pb.PbList<Node>();
+  @$core.pragma('dart2js:noInline')
+  static Node getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Node>(create);
+  static Node? _defaultInstance;
+
+  Node_Node whichNode() => _Node_NodeByTag[$_whichOneof(0)]!;
+  void clearNode() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  Node_Type get type => $_getN(0);
+  @$pb.TagNumber(1)
+  set type(Node_Type v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  EmptyNode get empty => $_getN(1);
+  @$pb.TagNumber(2)
+  set empty(EmptyNode v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasEmpty() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearEmpty() => clearField(2);
+  @$pb.TagNumber(2)
+  EmptyNode ensureEmpty() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  Support get support => $_getN(2);
+  @$pb.TagNumber(3)
+  set support(Support v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasSupport() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSupport() => clearField(3);
+  @$pb.TagNumber(3)
+  Support ensureSupport() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  Joint get joint => $_getN(3);
+  @$pb.TagNumber(4)
+  set joint(Joint v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasJoint() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearJoint() => clearField(4);
+  @$pb.TagNumber(4)
+  Joint ensureJoint() => $_ensure(3);
+}
+
 class PointLoad extends $pb.GeneratedMessage {
   factory PointLoad({
     $core.double? xValue,
@@ -734,15 +1096,15 @@ enum Load_Load {
 
 class Load extends $pb.GeneratedMessage {
   factory Load({
-    Load_LoadType? loadType,
+    Load_Type? type,
     PointLoad? pointLoad,
     Couple? couple,
     UniformlyDistributedLoad? uniformlyDistributedLoad,
     VerticallyDistributedLoad? verticallyDistributedLoad,
   }) {
     final $result = create();
-    if (loadType != null) {
-      $result.loadType = loadType;
+    if (type != null) {
+      $result.type = type;
     }
     if (pointLoad != null) {
       $result.pointLoad = pointLoad;
@@ -771,7 +1133,7 @@ class Load extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Load', createEmptyInstance: create)
     ..oo(0, [2, 3, 4, 5])
-    ..e<Load_LoadType>(1, _omitFieldNames ? '' : 'loadType', $pb.PbFieldType.OE, defaultOrMaker: Load_LoadType.UNKNOWN, valueOf: Load_LoadType.valueOf, enumValues: Load_LoadType.values)
+    ..e<Load_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: Load_Type.UNKNOWN, valueOf: Load_Type.valueOf, enumValues: Load_Type.values)
     ..aOM<PointLoad>(2, _omitFieldNames ? '' : 'pointLoad', subBuilder: PointLoad.create)
     ..aOM<Couple>(3, _omitFieldNames ? '' : 'couple', subBuilder: Couple.create)
     ..aOM<UniformlyDistributedLoad>(4, _omitFieldNames ? '' : 'uniformlyDistributedLoad', subBuilder: UniformlyDistributedLoad.create)
@@ -804,13 +1166,13 @@ class Load extends $pb.GeneratedMessage {
   void clearLoad() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  Load_LoadType get loadType => $_getN(0);
+  Load_Type get type => $_getN(0);
   @$pb.TagNumber(1)
-  set loadType(Load_LoadType v) { setField(1, v); }
+  set type(Load_Type v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasLoadType() => $_has(0);
+  $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
-  void clearLoadType() => clearField(1);
+  void clearType() => clearField(1);
 
   @$pb.TagNumber(2)
   PointLoad get pointLoad => $_getN(1);
@@ -862,6 +1224,8 @@ class Member extends $pb.GeneratedMessage {
     $core.double? length,
     $core.double? elasticModulus,
     $core.double? momentOfInertia,
+    $core.double? positionX,
+    $core.double? positionY,
     $core.Iterable<Load>? loadings,
   }) {
     final $result = create();
@@ -873,6 +1237,12 @@ class Member extends $pb.GeneratedMessage {
     }
     if (momentOfInertia != null) {
       $result.momentOfInertia = momentOfInertia;
+    }
+    if (positionX != null) {
+      $result.positionX = positionX;
+    }
+    if (positionY != null) {
+      $result.positionY = positionY;
     }
     if (loadings != null) {
       $result.loadings.addAll(loadings);
@@ -887,7 +1257,9 @@ class Member extends $pb.GeneratedMessage {
     ..a<$core.double>(1, _omitFieldNames ? '' : 'length', $pb.PbFieldType.OF)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'elasticModulus', $pb.PbFieldType.OF)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'momentOfInertia', $pb.PbFieldType.OF)
-    ..pc<Load>(4, _omitFieldNames ? '' : 'loadings', $pb.PbFieldType.PM, subBuilder: Load.create)
+    ..a<$core.double>(4, _omitFieldNames ? '' : 'positionX', $pb.PbFieldType.OF)
+    ..a<$core.double>(5, _omitFieldNames ? '' : 'positionY', $pb.PbFieldType.OF)
+    ..pc<Load>(6, _omitFieldNames ? '' : 'loadings', $pb.PbFieldType.PM, subBuilder: Load.create)
     ..hasRequiredFields = false
   ;
 
@@ -940,28 +1312,142 @@ class Member extends $pb.GeneratedMessage {
   void clearMomentOfInertia() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<Load> get loadings => $_getList(3);
+  $core.double get positionX => $_getN(3);
+  @$pb.TagNumber(4)
+  set positionX($core.double v) { $_setFloat(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasPositionX() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPositionX() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.double get positionY => $_getN(4);
+  @$pb.TagNumber(5)
+  set positionY($core.double v) { $_setFloat(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasPositionY() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPositionY() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.List<Load> get loadings => $_getList(5);
+}
+
+enum BeamComponent_Component {
+  member, 
+  support, 
+  notSet
+}
+
+class BeamComponent extends $pb.GeneratedMessage {
+  factory BeamComponent({
+    BeamComponent_Type? type,
+    Member? member,
+    Support? support,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (member != null) {
+      $result.member = member;
+    }
+    if (support != null) {
+      $result.support = support;
+    }
+    return $result;
+  }
+  BeamComponent._() : super();
+  factory BeamComponent.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BeamComponent.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, BeamComponent_Component> _BeamComponent_ComponentByTag = {
+    2 : BeamComponent_Component.member,
+    3 : BeamComponent_Component.support,
+    0 : BeamComponent_Component.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BeamComponent', createEmptyInstance: create)
+    ..oo(0, [2, 3])
+    ..e<BeamComponent_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: BeamComponent_Type.UNKNOWN, valueOf: BeamComponent_Type.valueOf, enumValues: BeamComponent_Type.values)
+    ..aOM<Member>(2, _omitFieldNames ? '' : 'member', subBuilder: Member.create)
+    ..aOM<Support>(3, _omitFieldNames ? '' : 'support', subBuilder: Support.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BeamComponent clone() => BeamComponent()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BeamComponent copyWith(void Function(BeamComponent) updates) => super.copyWith((message) => updates(message as BeamComponent)) as BeamComponent;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BeamComponent create() => BeamComponent._();
+  BeamComponent createEmptyInstance() => create();
+  static $pb.PbList<BeamComponent> createRepeated() => $pb.PbList<BeamComponent>();
+  @$core.pragma('dart2js:noInline')
+  static BeamComponent getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BeamComponent>(create);
+  static BeamComponent? _defaultInstance;
+
+  BeamComponent_Component whichComponent() => _BeamComponent_ComponentByTag[$_whichOneof(0)]!;
+  void clearComponent() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  BeamComponent_Type get type => $_getN(0);
+  @$pb.TagNumber(1)
+  set type(BeamComponent_Type v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  Member get member => $_getN(1);
+  @$pb.TagNumber(2)
+  set member(Member v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMember() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMember() => clearField(2);
+  @$pb.TagNumber(2)
+  Member ensureMember() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  Support get support => $_getN(2);
+  @$pb.TagNumber(3)
+  set support(Support v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasSupport() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSupport() => clearField(3);
+  @$pb.TagNumber(3)
+  Support ensureSupport() => $_ensure(2);
 }
 
 enum Component_Component {
-  support, 
+  node, 
   member, 
   notSet
 }
 
-/// component
 class Component extends $pb.GeneratedMessage {
   factory Component({
-    Component_ComponentType? componentType,
-    Support? support,
+    Component_Type? type,
+    Node? node,
     Member? member,
   }) {
     final $result = create();
-    if (componentType != null) {
-      $result.componentType = componentType;
+    if (type != null) {
+      $result.type = type;
     }
-    if (support != null) {
-      $result.support = support;
+    if (node != null) {
+      $result.node = node;
     }
     if (member != null) {
       $result.member = member;
@@ -973,14 +1459,14 @@ class Component extends $pb.GeneratedMessage {
   factory Component.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static const $core.Map<$core.int, Component_Component> _Component_ComponentByTag = {
-    2 : Component_Component.support,
+    2 : Component_Component.node,
     3 : Component_Component.member,
     0 : Component_Component.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Component', createEmptyInstance: create)
     ..oo(0, [2, 3])
-    ..e<Component_ComponentType>(1, _omitFieldNames ? '' : 'componentType', $pb.PbFieldType.OE, defaultOrMaker: Component_ComponentType.UNKNOWN, valueOf: Component_ComponentType.valueOf, enumValues: Component_ComponentType.values)
-    ..aOM<Support>(2, _omitFieldNames ? '' : 'support', subBuilder: Support.create)
+    ..e<Component_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: Component_Type.UNKNOWN, valueOf: Component_Type.valueOf, enumValues: Component_Type.values)
+    ..aOM<Node>(2, _omitFieldNames ? '' : 'node', subBuilder: Node.create)
     ..aOM<Member>(3, _omitFieldNames ? '' : 'member', subBuilder: Member.create)
     ..hasRequiredFields = false
   ;
@@ -1010,24 +1496,24 @@ class Component extends $pb.GeneratedMessage {
   void clearComponent() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  Component_ComponentType get componentType => $_getN(0);
+  Component_Type get type => $_getN(0);
   @$pb.TagNumber(1)
-  set componentType(Component_ComponentType v) { setField(1, v); }
+  set type(Component_Type v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasComponentType() => $_has(0);
+  $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
-  void clearComponentType() => clearField(1);
+  void clearType() => clearField(1);
 
   @$pb.TagNumber(2)
-  Support get support => $_getN(1);
+  Node get node => $_getN(1);
   @$pb.TagNumber(2)
-  set support(Support v) { setField(2, v); }
+  set node(Node v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSupport() => $_has(1);
+  $core.bool hasNode() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSupport() => clearField(2);
+  void clearNode() => clearField(2);
   @$pb.TagNumber(2)
-  Support ensureSupport() => $_ensure(1);
+  Node ensureNode() => $_ensure(1);
 
   @$pb.TagNumber(3)
   Member get member => $_getN(2);
@@ -1041,10 +1527,9 @@ class Component extends $pb.GeneratedMessage {
   Member ensureMember() => $_ensure(2);
 }
 
-/// beam
 class Beam extends $pb.GeneratedMessage {
   factory Beam({
-    $core.Iterable<Component>? components,
+    $core.Iterable<BeamComponent>? components,
     AnalysisLog? log,
   }) {
     final $result = create();
@@ -1061,7 +1546,7 @@ class Beam extends $pb.GeneratedMessage {
   factory Beam.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Beam', createEmptyInstance: create)
-    ..pc<Component>(1, _omitFieldNames ? '' : 'components', $pb.PbFieldType.PM, subBuilder: Component.create)
+    ..pc<BeamComponent>(1, _omitFieldNames ? '' : 'components', $pb.PbFieldType.PM, subBuilder: BeamComponent.create)
     ..aOM<AnalysisLog>(2, _omitFieldNames ? '' : 'log', subBuilder: AnalysisLog.create)
     ..hasRequiredFields = false
   ;
@@ -1088,7 +1573,7 @@ class Beam extends $pb.GeneratedMessage {
   static Beam? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<Component> get components => $_getList(0);
+  $core.List<BeamComponent> get components => $_getList(0);
 
   @$pb.TagNumber(2)
   AnalysisLog get log => $_getN(1);

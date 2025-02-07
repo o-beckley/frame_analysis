@@ -1,5 +1,5 @@
-from component import Component
-from load import Load, PointLoad, UniformlyDistributedLoad, VerticallyDistributedLoad, Couple
+from models.component import Component
+from models.load import Load, PointLoad, UniformlyDistributedLoad, VerticallyDistributedLoad, Couple
 import numpy as np
 import math
 
@@ -11,12 +11,16 @@ class Member(Component):
         loadings: list[Load] = None,
         elastic_modulus: float = None,
         moment_of_inertia: float = None,
+        left_node_index: int = None,
+        right_node_index: int = None,
     ):
         self.length = length
         self.loadings = [] if loadings is None else loadings
         self.fem_left, self.fem_right = self.compute_fem()
         self.elastic_modulus = elastic_modulus
         self.moment_of_inertia = moment_of_inertia
+        self.left_node_index = left_node_index,
+        self.right_node_index = right_node_index,
         self.chord_rotation = None
         self.left_end_moment = None
         self.right_end_moment = None

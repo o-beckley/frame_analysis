@@ -1,6 +1,4 @@
 import matplotlib.pyplot as plt
-
-from models.component import Component
 from models.load import PointLoad, UniformlyDistributedLoad, VerticallyDistributedLoad, Couple
 from models.log import AnalysisLog
 from models.support import Support, RollerSupport, HingeSupport, FixedSupport
@@ -12,7 +10,7 @@ import math
 # TODO: assert that the first component starts at the origin.??
 
 class Beam:
-    def __init__(self, components: list[Component]):
+    def __init__(self, components: list[Member | Support]):
         self.components = components
         self.log = AnalysisLog()
 

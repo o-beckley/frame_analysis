@@ -107,55 +107,83 @@ class MainAppState extends State<MainApp> with WidgetsBindingObserver {
                 onPressed: () async {
                   final beam = Beam(
                     components: [
-                      Component(
-                        componentType:Component_ComponentType.SUPPORT,
+                      BeamComponent(
+                        type:BeamComponent_Type.SUPPORT,
                         support: Support(
-                          supportType: Support_SupportType.HINGE_SUPPORT,
-                          hingeSupport: HingeSupport(
-                            settlement: 0,
-                          )
+                          type: Support_Type.FIXED,
+                          fixed: FixedSupport()
                         )
                       ),
-                      Component(
-                        componentType:Component_ComponentType.MEMBER,
+                      BeamComponent(
+                        type: BeamComponent_Type.MEMBER,
                         member: Member(
-                          length: 5,
-                          elasticModulus: 1,
-                          momentOfInertia: 1,
-                          loadings: [
-                            Load(
-                              loadType:Load_LoadType.POINT_LOAD,
-                              pointLoad: PointLoad(
-                                pointOfApplication: 2.5,
-                                yValue: 10,
-                              )
-                            ),
-                            // Load(
-                            //   loadType: Load_LoadType.UNIFORMLY_DISTRIBUTED_LOAD,
-                            //   uniformlyDistributedLoad: UniformlyDistributedLoad(
-                            //     // orientation: VerticallyDistributedLoad_Orientation.LEFT,
-                            //     value: 3,
-                            //     length: 4,
-                            //     startingPoint: 0
-                            //   )
-                            // ),
-                            // Load(
-                            //   loadType: Load_LoadType.COUPLE,
-                            //   couple: Couple(
-                            //     value: 10,
-                            //     pointOfApplication: 2
-                            //   )
-                            // )
-                          ]
+                          length: 8,
+                          elasticModulus: 70e9,
+                          momentOfInertia: 800e-6,
+                          // loadings: [
+                          //   Load(
+                          //     type: Load_Type.POINT,
+                          //     pointLoad: PointLoad(
+                          //       pointOfApplication: 2.5,
+                          //       yValue: 10,
+                          //     )
+                          //   ),
+                          //   // Load(
+                          //   //   loadType: Load_LoadType.UNIFORMLY_DISTRIBUTED_LOAD,
+                          //   //   uniformlyDistributedLoad: UniformlyDistributedLoad(
+                          //   //     // orientation: VerticallyDistributedLoad_Orientation.LEFT,
+                          //   //     value: 3,
+                          //   //     length: 4,
+                          //   //     startingPoint: 0
+                          //   //   )
+                          //   // ),
+                          //   // Load(
+                          //   //   loadType: Load_LoadType.COUPLE,
+                          //   //   couple: Couple(
+                          //   //     value: 10,
+                          //   //     pointOfApplication: 2
+                          //   //   )
+                          //   // )
+                          // ]
                         )
                       ),
-                      Component(
-                          componentType:Component_ComponentType.SUPPORT,
+                      BeamComponent(
+                          type:BeamComponent_Type.SUPPORT,
                           support: Support(
-                              supportType: Support_SupportType.ROLLER_SUPPORT,
-                              rollerSupport: RollerSupport(
-                                settlement: 1
+                              type: Support_Type.ROLLER,
+                              roller: RollerSupport(
+                                settlement: 20e-3
                               )
+                          )
+                      ),
+                      BeamComponent(
+                        type: BeamComponent_Type.MEMBER,
+                        member: Member(
+                            length: 8,
+                            elasticModulus: 70e9,
+                            momentOfInertia: 800e-6
+                        )
+                      ),
+                      BeamComponent(
+                          type:BeamComponent_Type.SUPPORT,
+                          support: Support(
+                              type: Support_Type.ROLLER,
+                              roller: RollerSupport()
+                          )
+                      ),
+                      BeamComponent(
+                        type: BeamComponent_Type.MEMBER,
+                        member: Member(
+                            length: 8,
+                            elasticModulus: 70e9,
+                            momentOfInertia: 800e-6
+                        )
+                      ),
+                      BeamComponent(
+                          type:BeamComponent_Type.SUPPORT,
+                          support: Support(
+                              type: Support_Type.FIXED,
+                              fixed: FixedSupport()
                           )
                       ),
                     ]

@@ -75,36 +75,132 @@ final $typed_data.Uint8List fixedSupportDescriptor = $convert.base64Decode(
 const Support$json = {
   '1': 'Support',
   '2': [
-    {'1': 'support_type', '3': 1, '4': 1, '5': 14, '6': '.Support.SupportType', '10': 'supportType'},
-    {'1': 'roller_support', '3': 2, '4': 1, '5': 11, '6': '.RollerSupport', '9': 0, '10': 'rollerSupport'},
-    {'1': 'hinge_support', '3': 3, '4': 1, '5': 11, '6': '.HingeSupport', '9': 0, '10': 'hingeSupport'},
-    {'1': 'fixed_support', '3': 4, '4': 1, '5': 11, '6': '.FixedSupport', '9': 0, '10': 'fixedSupport'},
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.Support.Type', '10': 'type'},
+    {'1': 'position_x', '3': 2, '4': 1, '5': 2, '10': 'positionX'},
+    {'1': 'position_y', '3': 3, '4': 1, '5': 2, '10': 'positionY'},
+    {'1': 'roller', '3': 4, '4': 1, '5': 11, '6': '.RollerSupport', '9': 0, '10': 'roller'},
+    {'1': 'hinge', '3': 5, '4': 1, '5': 11, '6': '.HingeSupport', '9': 0, '10': 'hinge'},
+    {'1': 'fixed', '3': 6, '4': 1, '5': 11, '6': '.FixedSupport', '9': 0, '10': 'fixed'},
   ],
-  '4': [Support_SupportType$json],
+  '4': [Support_Type$json],
   '8': [
     {'1': 'support'},
   ],
 };
 
 @$core.Deprecated('Use supportDescriptor instead')
-const Support_SupportType$json = {
-  '1': 'SupportType',
+const Support_Type$json = {
+  '1': 'Type',
   '2': [
     {'1': 'UNKNOWN', '2': 0},
-    {'1': 'ROLLER_SUPPORT', '2': 1},
-    {'1': 'HINGE_SUPPORT', '2': 2},
-    {'1': 'FIXED_SUPPORT', '2': 3},
+    {'1': 'ROLLER', '2': 1},
+    {'1': 'HINGE', '2': 2},
+    {'1': 'FIXED', '2': 3},
   ],
 };
 
 /// Descriptor for `Support`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List supportDescriptor = $convert.base64Decode(
-    'CgdTdXBwb3J0EjcKDHN1cHBvcnRfdHlwZRgBIAEoDjIULlN1cHBvcnQuU3VwcG9ydFR5cGVSC3'
-    'N1cHBvcnRUeXBlEjcKDnJvbGxlcl9zdXBwb3J0GAIgASgLMg4uUm9sbGVyU3VwcG9ydEgAUg1y'
-    'b2xsZXJTdXBwb3J0EjQKDWhpbmdlX3N1cHBvcnQYAyABKAsyDS5IaW5nZVN1cHBvcnRIAFIMaG'
-    'luZ2VTdXBwb3J0EjQKDWZpeGVkX3N1cHBvcnQYBCABKAsyDS5GaXhlZFN1cHBvcnRIAFIMZml4'
-    'ZWRTdXBwb3J0IlQKC1N1cHBvcnRUeXBlEgsKB1VOS05PV04QABISCg5ST0xMRVJfU1VQUE9SVB'
-    'ABEhEKDUhJTkdFX1NVUFBPUlQQAhIRCg1GSVhFRF9TVVBQT1JUEANCCQoHc3VwcG9ydA==');
+    'CgdTdXBwb3J0EiEKBHR5cGUYASABKA4yDS5TdXBwb3J0LlR5cGVSBHR5cGUSHQoKcG9zaXRpb2'
+    '5feBgCIAEoAlIJcG9zaXRpb25YEh0KCnBvc2l0aW9uX3kYAyABKAJSCXBvc2l0aW9uWRIoCgZy'
+    'b2xsZXIYBCABKAsyDi5Sb2xsZXJTdXBwb3J0SABSBnJvbGxlchIlCgVoaW5nZRgFIAEoCzINLk'
+    'hpbmdlU3VwcG9ydEgAUgVoaW5nZRIlCgVmaXhlZBgGIAEoCzINLkZpeGVkU3VwcG9ydEgAUgVm'
+    'aXhlZCI1CgRUeXBlEgsKB1VOS05PV04QABIKCgZST0xMRVIQARIJCgVISU5HRRACEgkKBUZJWE'
+    'VEEANCCQoHc3VwcG9ydA==');
+
+@$core.Deprecated('Use hingedJointDescriptor instead')
+const HingedJoint$json = {
+  '1': 'HingedJoint',
+};
+
+/// Descriptor for `HingedJoint`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List hingedJointDescriptor = $convert.base64Decode(
+    'CgtIaW5nZWRKb2ludA==');
+
+@$core.Deprecated('Use fixedJointDescriptor instead')
+const FixedJoint$json = {
+  '1': 'FixedJoint',
+};
+
+/// Descriptor for `FixedJoint`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fixedJointDescriptor = $convert.base64Decode(
+    'CgpGaXhlZEpvaW50');
+
+@$core.Deprecated('Use jointDescriptor instead')
+const Joint$json = {
+  '1': 'Joint',
+  '2': [
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.Joint.Type', '10': 'type'},
+    {'1': 'position_x', '3': 2, '4': 1, '5': 2, '10': 'positionX'},
+    {'1': 'position_y', '3': 3, '4': 1, '5': 2, '10': 'positionY'},
+    {'1': 'hinged', '3': 4, '4': 1, '5': 11, '6': '.HingedJoint', '9': 0, '10': 'hinged'},
+    {'1': 'fixed', '3': 5, '4': 1, '5': 11, '6': '.FixedJoint', '9': 0, '10': 'fixed'},
+  ],
+  '4': [Joint_Type$json],
+  '8': [
+    {'1': 'joint'},
+  ],
+};
+
+@$core.Deprecated('Use jointDescriptor instead')
+const Joint_Type$json = {
+  '1': 'Type',
+  '2': [
+    {'1': 'UNKNOWN', '2': 0},
+    {'1': 'HINGED', '2': 1},
+    {'1': 'FIXED', '2': 2},
+  ],
+};
+
+/// Descriptor for `Joint`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List jointDescriptor = $convert.base64Decode(
+    'CgVKb2ludBIfCgR0eXBlGAEgASgOMgsuSm9pbnQuVHlwZVIEdHlwZRIdCgpwb3NpdGlvbl94GA'
+    'IgASgCUglwb3NpdGlvblgSHQoKcG9zaXRpb25feRgDIAEoAlIJcG9zaXRpb25ZEiYKBmhpbmdl'
+    'ZBgEIAEoCzIMLkhpbmdlZEpvaW50SABSBmhpbmdlZBIjCgVmaXhlZBgFIAEoCzILLkZpeGVkSm'
+    '9pbnRIAFIFZml4ZWQiKgoEVHlwZRILCgdVTktOT1dOEAASCgoGSElOR0VEEAESCQoFRklYRUQQ'
+    'AkIHCgVqb2ludA==');
+
+@$core.Deprecated('Use emptyNodeDescriptor instead')
+const EmptyNode$json = {
+  '1': 'EmptyNode',
+};
+
+/// Descriptor for `EmptyNode`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List emptyNodeDescriptor = $convert.base64Decode(
+    'CglFbXB0eU5vZGU=');
+
+@$core.Deprecated('Use nodeDescriptor instead')
+const Node$json = {
+  '1': 'Node',
+  '2': [
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.Node.Type', '10': 'type'},
+    {'1': 'empty', '3': 2, '4': 1, '5': 11, '6': '.EmptyNode', '9': 0, '10': 'empty'},
+    {'1': 'support', '3': 3, '4': 1, '5': 11, '6': '.Support', '9': 0, '10': 'support'},
+    {'1': 'joint', '3': 4, '4': 1, '5': 11, '6': '.Joint', '9': 0, '10': 'joint'},
+  ],
+  '4': [Node_Type$json],
+  '8': [
+    {'1': 'node'},
+  ],
+};
+
+@$core.Deprecated('Use nodeDescriptor instead')
+const Node_Type$json = {
+  '1': 'Type',
+  '2': [
+    {'1': 'UNKNOWN', '2': 0},
+    {'1': 'EMPTY', '2': 1},
+    {'1': 'SUPPORT', '2': 2},
+    {'1': 'JOINT', '2': 3},
+  ],
+};
+
+/// Descriptor for `Node`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List nodeDescriptor = $convert.base64Decode(
+    'CgROb2RlEh4KBHR5cGUYASABKA4yCi5Ob2RlLlR5cGVSBHR5cGUSIgoFZW1wdHkYAiABKAsyCi'
+    '5FbXB0eU5vZGVIAFIFZW1wdHkSJAoHc3VwcG9ydBgDIAEoCzIILlN1cHBvcnRIAFIHc3VwcG9y'
+    'dBIeCgVqb2ludBgEIAEoCzIGLkpvaW50SABSBWpvaW50IjYKBFR5cGUSCwoHVU5LTk9XThAAEg'
+    'kKBUVNUFRZEAESCwoHU1VQUE9SVBACEgkKBUpPSU5UEANCBgoEbm9kZQ==');
 
 @$core.Deprecated('Use pointLoadDescriptor instead')
 const PointLoad$json = {
@@ -184,40 +280,40 @@ final $typed_data.Uint8List verticallyDistributedLoadDescriptor = $convert.base6
 const Load$json = {
   '1': 'Load',
   '2': [
-    {'1': 'load_type', '3': 1, '4': 1, '5': 14, '6': '.Load.LoadType', '10': 'loadType'},
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.Load.Type', '10': 'type'},
     {'1': 'point_load', '3': 2, '4': 1, '5': 11, '6': '.PointLoad', '9': 0, '10': 'pointLoad'},
     {'1': 'couple', '3': 3, '4': 1, '5': 11, '6': '.Couple', '9': 0, '10': 'couple'},
     {'1': 'uniformly_distributed_load', '3': 4, '4': 1, '5': 11, '6': '.UniformlyDistributedLoad', '9': 0, '10': 'uniformlyDistributedLoad'},
     {'1': 'vertically_distributed_load', '3': 5, '4': 1, '5': 11, '6': '.VerticallyDistributedLoad', '9': 0, '10': 'verticallyDistributedLoad'},
   ],
-  '4': [Load_LoadType$json],
+  '4': [Load_Type$json],
   '8': [
     {'1': 'load'},
   ],
 };
 
 @$core.Deprecated('Use loadDescriptor instead')
-const Load_LoadType$json = {
-  '1': 'LoadType',
+const Load_Type$json = {
+  '1': 'Type',
   '2': [
     {'1': 'UNKNOWN', '2': 0},
     {'1': 'COUPLE', '2': 1},
-    {'1': 'POINT_LOAD', '2': 2},
-    {'1': 'UNIFORMLY_DISTRIBUTED_LOAD', '2': 3},
-    {'1': 'VERTICALLY_DISTRIBUTED_LOAD', '2': 4},
+    {'1': 'POINT', '2': 2},
+    {'1': 'UNIFORMLY_DISTRIBUTED', '2': 3},
+    {'1': 'VERTICALLY_DISTRIBUTED', '2': 4},
   ],
 };
 
 /// Descriptor for `Load`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List loadDescriptor = $convert.base64Decode(
-    'CgRMb2FkEisKCWxvYWRfdHlwZRgBIAEoDjIOLkxvYWQuTG9hZFR5cGVSCGxvYWRUeXBlEisKCn'
-    'BvaW50X2xvYWQYAiABKAsyCi5Qb2ludExvYWRIAFIJcG9pbnRMb2FkEiEKBmNvdXBsZRgDIAEo'
-    'CzIHLkNvdXBsZUgAUgZjb3VwbGUSWQoadW5pZm9ybWx5X2Rpc3RyaWJ1dGVkX2xvYWQYBCABKA'
-    'syGS5Vbmlmb3JtbHlEaXN0cmlidXRlZExvYWRIAFIYdW5pZm9ybWx5RGlzdHJpYnV0ZWRMb2Fk'
-    'ElwKG3ZlcnRpY2FsbHlfZGlzdHJpYnV0ZWRfbG9hZBgFIAEoCzIaLlZlcnRpY2FsbHlEaXN0cm'
-    'lidXRlZExvYWRIAFIZdmVydGljYWxseURpc3RyaWJ1dGVkTG9hZCJ0CghMb2FkVHlwZRILCgdV'
-    'TktOT1dOEAASCgoGQ09VUExFEAESDgoKUE9JTlRfTE9BRBACEh4KGlVOSUZPUk1MWV9ESVNUUk'
-    'lCVVRFRF9MT0FEEAMSHwobVkVSVElDQUxMWV9ESVNUUklCVVRFRF9MT0FEEARCBgoEbG9hZA==');
+    'CgRMb2FkEh4KBHR5cGUYASABKA4yCi5Mb2FkLlR5cGVSBHR5cGUSKwoKcG9pbnRfbG9hZBgCIA'
+    'EoCzIKLlBvaW50TG9hZEgAUglwb2ludExvYWQSIQoGY291cGxlGAMgASgLMgcuQ291cGxlSABS'
+    'BmNvdXBsZRJZChp1bmlmb3JtbHlfZGlzdHJpYnV0ZWRfbG9hZBgEIAEoCzIZLlVuaWZvcm1seU'
+    'Rpc3RyaWJ1dGVkTG9hZEgAUhh1bmlmb3JtbHlEaXN0cmlidXRlZExvYWQSXAobdmVydGljYWxs'
+    'eV9kaXN0cmlidXRlZF9sb2FkGAUgASgLMhouVmVydGljYWxseURpc3RyaWJ1dGVkTG9hZEgAUh'
+    'l2ZXJ0aWNhbGx5RGlzdHJpYnV0ZWRMb2FkImEKBFR5cGUSCwoHVU5LTk9XThAAEgoKBkNPVVBM'
+    'RRABEgkKBVBPSU5UEAISGQoVVU5JRk9STUxZX0RJU1RSSUJVVEVEEAMSGgoWVkVSVElDQUxMWV'
+    '9ESVNUUklCVVRFRBAEQgYKBGxvYWQ=');
 
 @$core.Deprecated('Use memberDescriptor instead')
 const Member$json = {
@@ -226,7 +322,9 @@ const Member$json = {
     {'1': 'length', '3': 1, '4': 1, '5': 2, '10': 'length'},
     {'1': 'elastic_modulus', '3': 2, '4': 1, '5': 2, '9': 0, '10': 'elasticModulus', '17': true},
     {'1': 'moment_of_inertia', '3': 3, '4': 1, '5': 2, '9': 1, '10': 'momentOfInertia', '17': true},
-    {'1': 'loadings', '3': 4, '4': 3, '5': 11, '6': '.Load', '10': 'loadings'},
+    {'1': 'position_x', '3': 4, '4': 1, '5': 2, '10': 'positionX'},
+    {'1': 'position_y', '3': 5, '4': 1, '5': 2, '10': 'positionY'},
+    {'1': 'loadings', '3': 6, '4': 3, '5': 11, '6': '.Load', '10': 'loadings'},
   ],
   '8': [
     {'1': '_elastic_modulus'},
@@ -238,26 +336,27 @@ const Member$json = {
 final $typed_data.Uint8List memberDescriptor = $convert.base64Decode(
     'CgZNZW1iZXISFgoGbGVuZ3RoGAEgASgCUgZsZW5ndGgSLAoPZWxhc3RpY19tb2R1bHVzGAIgAS'
     'gCSABSDmVsYXN0aWNNb2R1bHVziAEBEi8KEW1vbWVudF9vZl9pbmVydGlhGAMgASgCSAFSD21v'
-    'bWVudE9mSW5lcnRpYYgBARIhCghsb2FkaW5ncxgEIAMoCzIFLkxvYWRSCGxvYWRpbmdzQhIKEF'
-    '9lbGFzdGljX21vZHVsdXNCFAoSX21vbWVudF9vZl9pbmVydGlh');
+    'bWVudE9mSW5lcnRpYYgBARIdCgpwb3NpdGlvbl94GAQgASgCUglwb3NpdGlvblgSHQoKcG9zaX'
+    'Rpb25feRgFIAEoAlIJcG9zaXRpb25ZEiEKCGxvYWRpbmdzGAYgAygLMgUuTG9hZFIIbG9hZGlu'
+    'Z3NCEgoQX2VsYXN0aWNfbW9kdWx1c0IUChJfbW9tZW50X29mX2luZXJ0aWE=');
 
-@$core.Deprecated('Use componentDescriptor instead')
-const Component$json = {
-  '1': 'Component',
+@$core.Deprecated('Use beamComponentDescriptor instead')
+const BeamComponent$json = {
+  '1': 'BeamComponent',
   '2': [
-    {'1': 'component_type', '3': 1, '4': 1, '5': 14, '6': '.Component.ComponentType', '10': 'componentType'},
-    {'1': 'support', '3': 2, '4': 1, '5': 11, '6': '.Support', '9': 0, '10': 'support'},
-    {'1': 'member', '3': 3, '4': 1, '5': 11, '6': '.Member', '9': 0, '10': 'member'},
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.BeamComponent.Type', '10': 'type'},
+    {'1': 'member', '3': 2, '4': 1, '5': 11, '6': '.Member', '9': 0, '10': 'member'},
+    {'1': 'support', '3': 3, '4': 1, '5': 11, '6': '.Support', '9': 0, '10': 'support'},
   ],
-  '4': [Component_ComponentType$json],
+  '4': [BeamComponent_Type$json],
   '8': [
     {'1': 'component'},
   ],
 };
 
-@$core.Deprecated('Use componentDescriptor instead')
-const Component_ComponentType$json = {
-  '1': 'ComponentType',
+@$core.Deprecated('Use beamComponentDescriptor instead')
+const BeamComponent_Type$json = {
+  '1': 'Type',
   '2': [
     {'1': 'UNKNOWN', '2': 0},
     {'1': 'MEMBER', '2': 1},
@@ -265,24 +364,55 @@ const Component_ComponentType$json = {
   ],
 };
 
+/// Descriptor for `BeamComponent`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List beamComponentDescriptor = $convert.base64Decode(
+    'Cg1CZWFtQ29tcG9uZW50EicKBHR5cGUYASABKA4yEy5CZWFtQ29tcG9uZW50LlR5cGVSBHR5cG'
+    'USIQoGbWVtYmVyGAIgASgLMgcuTWVtYmVySABSBm1lbWJlchIkCgdzdXBwb3J0GAMgASgLMggu'
+    'U3VwcG9ydEgAUgdzdXBwb3J0IiwKBFR5cGUSCwoHVU5LTk9XThAAEgoKBk1FTUJFUhABEgsKB1'
+    'NVUFBPUlQQAkILCgljb21wb25lbnQ=');
+
+@$core.Deprecated('Use componentDescriptor instead')
+const Component$json = {
+  '1': 'Component',
+  '2': [
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.Component.Type', '10': 'type'},
+    {'1': 'node', '3': 2, '4': 1, '5': 11, '6': '.Node', '9': 0, '10': 'node'},
+    {'1': 'member', '3': 3, '4': 1, '5': 11, '6': '.Member', '9': 0, '10': 'member'},
+  ],
+  '4': [Component_Type$json],
+  '8': [
+    {'1': 'component'},
+  ],
+};
+
+@$core.Deprecated('Use componentDescriptor instead')
+const Component_Type$json = {
+  '1': 'Type',
+  '2': [
+    {'1': 'UNKNOWN', '2': 0},
+    {'1': 'MEMBER', '2': 1},
+    {'1': 'NODE', '2': 2},
+  ],
+};
+
 /// Descriptor for `Component`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List componentDescriptor = $convert.base64Decode(
-    'CglDb21wb25lbnQSPwoOY29tcG9uZW50X3R5cGUYASABKA4yGC5Db21wb25lbnQuQ29tcG9uZW'
-    '50VHlwZVINY29tcG9uZW50VHlwZRIkCgdzdXBwb3J0GAIgASgLMgguU3VwcG9ydEgAUgdzdXBw'
-    'b3J0EiEKBm1lbWJlchgDIAEoCzIHLk1lbWJlckgAUgZtZW1iZXIiNQoNQ29tcG9uZW50VHlwZR'
-    'ILCgdVTktOT1dOEAASCgoGTUVNQkVSEAESCwoHU1VQUE9SVBACQgsKCWNvbXBvbmVudA==');
+    'CglDb21wb25lbnQSIwoEdHlwZRgBIAEoDjIPLkNvbXBvbmVudC5UeXBlUgR0eXBlEhsKBG5vZG'
+    'UYAiABKAsyBS5Ob2RlSABSBG5vZGUSIQoGbWVtYmVyGAMgASgLMgcuTWVtYmVySABSBm1lbWJl'
+    'ciIpCgRUeXBlEgsKB1VOS05PV04QABIKCgZNRU1CRVIQARIICgROT0RFEAJCCwoJY29tcG9uZW'
+    '50');
 
 @$core.Deprecated('Use beamDescriptor instead')
 const Beam$json = {
   '1': 'Beam',
   '2': [
-    {'1': 'components', '3': 1, '4': 3, '5': 11, '6': '.Component', '10': 'components'},
+    {'1': 'components', '3': 1, '4': 3, '5': 11, '6': '.BeamComponent', '10': 'components'},
     {'1': 'log', '3': 2, '4': 1, '5': 11, '6': '.AnalysisLog', '10': 'log'},
   ],
 };
 
 /// Descriptor for `Beam`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List beamDescriptor = $convert.base64Decode(
-    'CgRCZWFtEioKCmNvbXBvbmVudHMYASADKAsyCi5Db21wb25lbnRSCmNvbXBvbmVudHMSHgoDbG'
-    '9nGAIgASgLMgwuQW5hbHlzaXNMb2dSA2xvZw==');
+    'CgRCZWFtEi4KCmNvbXBvbmVudHMYASADKAsyDi5CZWFtQ29tcG9uZW50Ugpjb21wb25lbnRzEh'
+    '4KA2xvZxgCIAEoCzIMLkFuYWx5c2lzTG9nUgNsb2c=');
 

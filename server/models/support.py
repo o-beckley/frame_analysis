@@ -1,6 +1,6 @@
-from component import Component
+from models.node import Node
 
-class Support(Component):
+class Support(Node):
     def __init__(self, position: tuple[float, float] = None, settlement: float = 0.0):
         self.settlement = settlement
         super().__init__(position)
@@ -10,10 +10,12 @@ class RollerSupport(Support):
             self,
             position: tuple[float, float] = None,
             v_reaction: float = None,
-            settlement: float = 0.0
+            settlement: float = 0.0,
+            inclination: float = 0.0,
     ):
         self.v_reaction = v_reaction
         self.rotation = None # to be determined
+        self.inclination = inclination
         super().__init__(position, settlement)
 
 
@@ -23,11 +25,13 @@ class HingeSupport(Support):
             position: tuple[float, float] = None,
             v_reaction: float = None,
             h_reaction: float = None,
-            settlement: float = 0.0
+            settlement: float = 0.0,
+            inclination: float = 0.0,
     ):
         self.v_reaction = v_reaction
         self.h_reaction = h_reaction
         self.rotation = None # to be determined
+        self.inclination = inclination
         super().__init__(position, settlement)
 
 

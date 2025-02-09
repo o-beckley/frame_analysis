@@ -58,20 +58,16 @@ message Joint{
   }
 }
 
-message EmptyNode{}
-
 message Node{
   enum Type{
     UNKNOWN = 0;
-    EMPTY = 1;
-    SUPPORT = 2;
-    JOINT = 3;
+    SUPPORT = 1;
+    JOINT = 2;
   }
   Type type = 1;
   oneof node{
-    EmptyNode empty = 2;
-    Support support = 3;
-    Joint joint = 4;
+    Support support = 2;
+    Joint joint = 3;
   }
 }
 

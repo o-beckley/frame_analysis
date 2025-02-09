@@ -51,13 +51,11 @@ class Joint_Type extends $pb.ProtobufEnum {
 
 class Node_Type extends $pb.ProtobufEnum {
   static const Node_Type UNKNOWN = Node_Type._(0, _omitEnumNames ? '' : 'UNKNOWN');
-  static const Node_Type EMPTY = Node_Type._(1, _omitEnumNames ? '' : 'EMPTY');
-  static const Node_Type SUPPORT = Node_Type._(2, _omitEnumNames ? '' : 'SUPPORT');
-  static const Node_Type JOINT = Node_Type._(3, _omitEnumNames ? '' : 'JOINT');
+  static const Node_Type SUPPORT = Node_Type._(1, _omitEnumNames ? '' : 'SUPPORT');
+  static const Node_Type JOINT = Node_Type._(2, _omitEnumNames ? '' : 'JOINT');
 
   static const $core.List<Node_Type> values = <Node_Type> [
     UNKNOWN,
-    EMPTY,
     SUPPORT,
     JOINT,
   ];

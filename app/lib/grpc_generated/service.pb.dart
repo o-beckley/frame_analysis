@@ -627,40 +627,7 @@ class Joint extends $pb.GeneratedMessage {
   FixedJoint ensureFixed() => $_ensure(4);
 }
 
-class EmptyNode extends $pb.GeneratedMessage {
-  factory EmptyNode() => create();
-  EmptyNode._() : super();
-  factory EmptyNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory EmptyNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EmptyNode', createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  EmptyNode clone() => EmptyNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  EmptyNode copyWith(void Function(EmptyNode) updates) => super.copyWith((message) => updates(message as EmptyNode)) as EmptyNode;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static EmptyNode create() => EmptyNode._();
-  EmptyNode createEmptyInstance() => create();
-  static $pb.PbList<EmptyNode> createRepeated() => $pb.PbList<EmptyNode>();
-  @$core.pragma('dart2js:noInline')
-  static EmptyNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EmptyNode>(create);
-  static EmptyNode? _defaultInstance;
-}
-
 enum Node_Node {
-  empty, 
   support, 
   joint, 
   notSet
@@ -669,16 +636,12 @@ enum Node_Node {
 class Node extends $pb.GeneratedMessage {
   factory Node({
     Node_Type? type,
-    EmptyNode? empty,
     Support? support,
     Joint? joint,
   }) {
     final $result = create();
     if (type != null) {
       $result.type = type;
-    }
-    if (empty != null) {
-      $result.empty = empty;
     }
     if (support != null) {
       $result.support = support;
@@ -693,17 +656,15 @@ class Node extends $pb.GeneratedMessage {
   factory Node.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static const $core.Map<$core.int, Node_Node> _Node_NodeByTag = {
-    2 : Node_Node.empty,
-    3 : Node_Node.support,
-    4 : Node_Node.joint,
+    2 : Node_Node.support,
+    3 : Node_Node.joint,
     0 : Node_Node.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Node', createEmptyInstance: create)
-    ..oo(0, [2, 3, 4])
+    ..oo(0, [2, 3])
     ..e<Node_Type>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: Node_Type.UNKNOWN, valueOf: Node_Type.valueOf, enumValues: Node_Type.values)
-    ..aOM<EmptyNode>(2, _omitFieldNames ? '' : 'empty', subBuilder: EmptyNode.create)
-    ..aOM<Support>(3, _omitFieldNames ? '' : 'support', subBuilder: Support.create)
-    ..aOM<Joint>(4, _omitFieldNames ? '' : 'joint', subBuilder: Joint.create)
+    ..aOM<Support>(2, _omitFieldNames ? '' : 'support', subBuilder: Support.create)
+    ..aOM<Joint>(3, _omitFieldNames ? '' : 'joint', subBuilder: Joint.create)
     ..hasRequiredFields = false
   ;
 
@@ -741,37 +702,26 @@ class Node extends $pb.GeneratedMessage {
   void clearType() => clearField(1);
 
   @$pb.TagNumber(2)
-  EmptyNode get empty => $_getN(1);
+  Support get support => $_getN(1);
   @$pb.TagNumber(2)
-  set empty(EmptyNode v) { setField(2, v); }
+  set support(Support v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasEmpty() => $_has(1);
+  $core.bool hasSupport() => $_has(1);
   @$pb.TagNumber(2)
-  void clearEmpty() => clearField(2);
+  void clearSupport() => clearField(2);
   @$pb.TagNumber(2)
-  EmptyNode ensureEmpty() => $_ensure(1);
+  Support ensureSupport() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  Support get support => $_getN(2);
+  Joint get joint => $_getN(2);
   @$pb.TagNumber(3)
-  set support(Support v) { setField(3, v); }
+  set joint(Joint v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasSupport() => $_has(2);
+  $core.bool hasJoint() => $_has(2);
   @$pb.TagNumber(3)
-  void clearSupport() => clearField(3);
+  void clearJoint() => clearField(3);
   @$pb.TagNumber(3)
-  Support ensureSupport() => $_ensure(2);
-
-  @$pb.TagNumber(4)
-  Joint get joint => $_getN(3);
-  @$pb.TagNumber(4)
-  set joint(Joint v) { setField(4, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasJoint() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearJoint() => clearField(4);
-  @$pb.TagNumber(4)
-  Joint ensureJoint() => $_ensure(3);
+  Joint ensureJoint() => $_ensure(2);
 }
 
 class PointLoad extends $pb.GeneratedMessage {

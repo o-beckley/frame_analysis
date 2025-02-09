@@ -160,23 +160,13 @@ final $typed_data.Uint8List jointDescriptor = $convert.base64Decode(
     '9pbnRIAFIFZml4ZWQiKgoEVHlwZRILCgdVTktOT1dOEAASCgoGSElOR0VEEAESCQoFRklYRUQQ'
     'AkIHCgVqb2ludA==');
 
-@$core.Deprecated('Use emptyNodeDescriptor instead')
-const EmptyNode$json = {
-  '1': 'EmptyNode',
-};
-
-/// Descriptor for `EmptyNode`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List emptyNodeDescriptor = $convert.base64Decode(
-    'CglFbXB0eU5vZGU=');
-
 @$core.Deprecated('Use nodeDescriptor instead')
 const Node$json = {
   '1': 'Node',
   '2': [
     {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.Node.Type', '10': 'type'},
-    {'1': 'empty', '3': 2, '4': 1, '5': 11, '6': '.EmptyNode', '9': 0, '10': 'empty'},
-    {'1': 'support', '3': 3, '4': 1, '5': 11, '6': '.Support', '9': 0, '10': 'support'},
-    {'1': 'joint', '3': 4, '4': 1, '5': 11, '6': '.Joint', '9': 0, '10': 'joint'},
+    {'1': 'support', '3': 2, '4': 1, '5': 11, '6': '.Support', '9': 0, '10': 'support'},
+    {'1': 'joint', '3': 3, '4': 1, '5': 11, '6': '.Joint', '9': 0, '10': 'joint'},
   ],
   '4': [Node_Type$json],
   '8': [
@@ -189,18 +179,16 @@ const Node_Type$json = {
   '1': 'Type',
   '2': [
     {'1': 'UNKNOWN', '2': 0},
-    {'1': 'EMPTY', '2': 1},
-    {'1': 'SUPPORT', '2': 2},
-    {'1': 'JOINT', '2': 3},
+    {'1': 'SUPPORT', '2': 1},
+    {'1': 'JOINT', '2': 2},
   ],
 };
 
 /// Descriptor for `Node`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List nodeDescriptor = $convert.base64Decode(
-    'CgROb2RlEh4KBHR5cGUYASABKA4yCi5Ob2RlLlR5cGVSBHR5cGUSIgoFZW1wdHkYAiABKAsyCi'
-    '5FbXB0eU5vZGVIAFIFZW1wdHkSJAoHc3VwcG9ydBgDIAEoCzIILlN1cHBvcnRIAFIHc3VwcG9y'
-    'dBIeCgVqb2ludBgEIAEoCzIGLkpvaW50SABSBWpvaW50IjYKBFR5cGUSCwoHVU5LTk9XThAAEg'
-    'kKBUVNUFRZEAESCwoHU1VQUE9SVBACEgkKBUpPSU5UEANCBgoEbm9kZQ==');
+    'CgROb2RlEh4KBHR5cGUYASABKA4yCi5Ob2RlLlR5cGVSBHR5cGUSJAoHc3VwcG9ydBgCIAEoCz'
+    'IILlN1cHBvcnRIAFIHc3VwcG9ydBIeCgVqb2ludBgDIAEoCzIGLkpvaW50SABSBWpvaW50IisK'
+    'BFR5cGUSCwoHVU5LTk9XThAAEgsKB1NVUFBPUlQQARIJCgVKT0lOVBACQgYKBG5vZGU=');
 
 @$core.Deprecated('Use pointLoadDescriptor instead')
 const PointLoad$json = {
